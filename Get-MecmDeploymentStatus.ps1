@@ -31,3 +31,5 @@ $suAssignment = Get-CMSoftwareUpdateDeployment -DeploymentId $deploymentDetails.
 $suDeploymentSummary = Get-CMSoftwareUpdateDeploymentStatus -InputObject $suAssignment
 $deploymentStatusDetails = Get-CMDeploymentStatusDetails -InputObject $suDeploymentSummary[0]
 $deploymentStatusDetails | Select-Object DeviceName, IsCompliant, StatusTime, @{expression = {Get-CmStatusType $_.StatusType}; label="StatusType"}, StatusDescription, AssignmentName | Format-Table
+
+

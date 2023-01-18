@@ -21,6 +21,13 @@ Function Get-CmStatusType ($statusNumber) {
     return $getStatusDesc
 }
 
+# Connect to ConfigurationManager - Requires Console to be installed
+# Refer to Getting Started article for more information how to configure the module
+# https://learn.microsoft.com/en-us/powershell/sccm/overview?view=sccm-ps
+Import-Module "C:\Program Files (x86)\ConfigMgr\bin\ConfigurationManager.psd1"
+Update-FormatData "mecmFormats.ps1xml"
+Set-Location CB1:
+
 # Targeted Collection & Software Name
 $collectionName = "MSU - Application - Dev"
 $wsuSoftwareName = "Windows Server Updates 2023-01"
